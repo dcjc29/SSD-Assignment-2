@@ -1,8 +1,7 @@
 import React from 'react';
 import {AppBar, Toolbar, IconButton, Badge, Typography} from '@material-ui/core';
-import {ShoppingCart} from '@material-ui/icons';
+import {ShoppingCart, BookmarksRounded} from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
-// import logo from '../../assets/circles.png';
 import useStyles from './styles';
 
 const Navbar = ({totalItems}) => {
@@ -13,9 +12,9 @@ const Navbar = ({totalItems}) => {
         <div>
          <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography component={Link} to="/" variant="h5" className={classes.title} color="inherit">
-            {/* <img src={logo} alt="Book Store App" height="50px" className={classes.image} />  */}
-              <strong >BooK-IT</strong> 
+          <Typography component={Link} to="/" variant="h4" className={classes.title} color="inherit">
+            <BookmarksRounded style={{ fontSize: 45 }}/>
+              <strong >Fantastic Book Store</strong> 
           </Typography>
 
             <div className={classes.grow} />
@@ -23,7 +22,7 @@ const Navbar = ({totalItems}) => {
             <div className={classes.button}>
                 <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
                     <Badge badgeContent={totalItems} color="secondary">
-                        <ShoppingCart />
+                        <ShoppingCart style={{ fontSize: 35 }} />
                     </Badge>
                 </IconButton>
           </div>

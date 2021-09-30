@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
   appBar: {
     color:'white',
     boxShadow: 'none',
-    background:'#1C2331',
+    background:'#0D7F8C',
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -17,17 +17,19 @@ export default makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     alignItems: 'center',
+    marginRight: '10px',
+    fontFamily:'Cursive',
     display: 'flex',
     textDecoration: 'none',
     '&:hover': {
-      color: '#ffff',
+      color: '#F2F2F2',
       boxShadow: 'none',    
     },
     
   },
   cartt : {
     '&:hover': {
-      color: '#ffff',
+      color: '#F2F2F2',
       boxShadow: 'none',    
     },
   },
