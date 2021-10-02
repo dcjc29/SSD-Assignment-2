@@ -19,6 +19,7 @@ connectDB();
 
 // Route files
 const users = require("./routes/users");
+const books = require("./routes/books");
 
 const app = express();
 
@@ -54,6 +55,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Mount routers
 app.use("/api/v1/users", users);
+app.use("/api/v1/books", books);
 
 app.use(errorHandler);
 
@@ -67,8 +69,8 @@ const server = app.listen(
 );
 
 // Handle unhandled promise rejections
-process.on("unhandledRejection", (err, promise) => {
-  console.log(`Error: ${err.message}`.red);
+process.on("unhandledRejection", (err) => {
+  console.log(`Error: ${err?.message}`.red);
   // Close server & exit process
   server.close(() => process.exit(1));
 });
