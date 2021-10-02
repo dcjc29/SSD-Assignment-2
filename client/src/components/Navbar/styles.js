@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
   appBar: {
     color:'white',
     boxShadow: 'none',
-    background:'#0D7F8C',
+    background:'#004d40',
     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,

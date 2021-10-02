@@ -4,23 +4,26 @@ import logo from '../../assets/logos.png';
 
 const Footer = () => {
   return (
-    <MDBFooter color="unique-color-dark" className="font-small pt-4 mt-4">
-      <MDBContainer className="text-center text-md-left">
-        <MDBRow className="text-center text-md-left mt-3 pb-3">
+    <MDBFooter color="teal darken-4" className="font-small pt-4 mt-4">
+      <MDBContainer className="text-center text-md-center">
+        <MDBRow className="text-center text-md-center mt-3 pb-3">
           <MDBCol md="3" lg="3" xl="4" className="mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold">
             <img src={logo} alt="Book Store App" height="50px" />
                <strong>Fantastic Book Store</strong>              
             </h6>
             <p>
-            Fantastic Book Store is an online React web application where the customer can purchase books online.
+            Fantastic Book Store is an online React web application where the customer can purchase and download books online.
              Through this book store the users can search for a book by its title and
              later can add to the shopping cart and finally purchase using credit card transaction.
             </p>
           </MDBCol>
-          <hr className="w-100 clearfix d-md-none" />
+          <br />
+          <br />
+          <br />
+
           <MDBCol md="2" lg="2" xl="2" className="mx-auto mt-3">
-            <h6 className="text-uppercase mb-4 font-weight-bold"><strong>Products</strong></h6>
+           <br />
             <p>
               <a href="#">Fantastic Book Store</a>
             </p>
@@ -32,7 +35,7 @@ const Footer = () => {
             </p>
           </MDBCol>
 
-          <hr className="w-100 clearfix d-md-none" />
+      
           <MDBCol md="4" lg="3" xl="3" className="mx-auto mt-3">
             <h6 className="text-uppercase mb-4 font-weight-bold"><strong>Contact</strong></h6>
             <p>

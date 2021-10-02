@@ -9,15 +9,15 @@ const createMarkup = (text) => {
     return { __html: text };
   };
 
-const ProductView = () => {
+const BookView = () => {
 
-    const [product, setProduct] = useState({});
+    const [book, setBook] = useState({});
 
-    const fetchProduct = async (id) => {
+    const fetchBook = async (id) => {
         const response = await commerce.products.retrieve(id);
         console.log({ response });
         const { name, price, media, quantity, description } = response;
-        setProduct({
+        setBook({
           name,
           quantity,
           description,
@@ -28,21 +28,21 @@ const ProductView = () => {
 
       useEffect(() => {
         const id = window.location.pathname.split("/");
-        fetchProduct(id[2]);
+        fetchBook(id[2]);
       }, []);
 
     return (
-        <Container className="product-view">
+        <Container className="book-view">
           <Grid container>
             <Grid item xs={12} md={6} className="image-wrapper">
-              <img src={product.src} alt={product.name}
+              <img src={book.src} alt={book.name}
               />
             </Grid>
             <Grid item xs={12} md={5} className="text">
-              <Typography variant="h2"><b>{product.name}</b></Typography>
+              <Typography variant="h2"><b>{book.name}</b></Typography>
               <hr />
-              <Typography variant="p" dangerouslySetInnerHTML={createMarkup(product.description)} />
-              <Typography variant="h3" color="secondary" >Price: <b> {product.price} </b> </Typography>
+              <Typography variant="p" dangerouslySetInnerHTML={createMarkup(book.description)} />
+              <Typography variant="h3" color="secondary" >Price: <b> {book.price} </b> </Typography>
               <br/>
               <Grid container spacing={4}>
                 <Grid item xs={12}>
@@ -57,4 +57,4 @@ const ProductView = () => {
       );
     };
     
-    export default ProductView;
+    export default BookView;

@@ -5,27 +5,27 @@ import { Link } from 'react-router-dom';
 import useStyles from './styles';
 
 
-const Product = ({product, onAddToCart}) => {
+const BookItem = ({product: bookItem, onAddToCart}) => {
     const classes = useStyles();
     return (
         <Card className={classes.root}>
-        <Link to={`product-view/${product.id}`} >
+        <Link to={`product-view/${bookItem.id}`} >
         <CardActionArea>
-        <CardMedia className={classes.media} image={product.media.source} title={product.name}  />
+        <CardMedia className={classes.media} image={bookItem.media.source} title={bookItem.name}  />
         </CardActionArea>
         </Link>
         <CardContent>
           <div className={classes.cardContent}>
             <Typography  variant="h6">
-            {product.name}
+            {bookItem.name}
             </Typography>
             <Typography variant="h6" color="secondary">
-              ₹<b>{product.price.formatted}</b> 
+              ₹<b>{bookItem.price.formatted}</b> 
             </Typography>
           </div>
         </CardContent>
         <CardActions disableSpacing className={classes.cardActions}>
-          <Button variant="contained" className={classes.button} endIcon={<AddShoppingCart />} onClick={() => onAddToCart(product.id, 1)} >
+          <Button variant="contained" className={classes.button} endIcon={<AddShoppingCart />} onClick={() => onAddToCart(bookItem.id, 1)} >
             <b>ADD TO CART</b>
           </Button>
         </CardActions>
@@ -33,4 +33,4 @@ const Product = ({product, onAddToCart}) => {
     )
 }
 
-export default Product;
+export default BookItem;
