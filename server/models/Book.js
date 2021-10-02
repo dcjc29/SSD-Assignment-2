@@ -21,6 +21,10 @@ const BookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  file: {
+    type: String,
+    required: true,
+  }
 });
 
 module.exports = mongoose.model("Book", BookSchema);
