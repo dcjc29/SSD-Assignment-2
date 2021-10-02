@@ -1,6 +1,7 @@
 import React from 'react';
 import { CssBaseline } from '@material-ui/core';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -29,7 +30,7 @@ function App() {
         </Switch> */}
         </div>
       </Router>
-      {/* <Footer /> */}
+      <Footer />
     </div>
 
   );
