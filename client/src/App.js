@@ -1,7 +1,7 @@
 import React from 'react';
 import { CssBaseline } from '@material-ui/core';
 import Navbar from './components/Navbar/Navbar';
-import Books from './components/Book/Books';
+import Books from './components/book/Books';
 import Footer from './components/Footer/Footer';
 //import BookView from './components/BookView/BookView';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
