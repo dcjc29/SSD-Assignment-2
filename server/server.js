@@ -20,6 +20,7 @@ connectDB();
 // Route files
 const users = require("./routes/users");
 const books = require("./routes/books");
+const google = require("./routes/google");
 
 const app = express();
 
@@ -56,6 +57,7 @@ if (process.env.NODE_ENV === "development") {
 // Mount routers
 app.use("/api/v1/users", users);
 app.use("/api/v1/books", books);
+app.use("/google",google);
 
 app.use(errorHandler);
 
