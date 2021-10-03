@@ -79,16 +79,7 @@ function Books({ products, onAddToCart }) {
     </Carousel>
 
    <br />
-  {/* <Button
-      className={classes.but}
-      size="large"
-      variant="contained"
-      color="secondary"
-      component={Link}
-      to="/cart"
-  >
-  Checkout Cart
-  </Button> */}
+
 
   <div className={classes.searchs}>
     <Input
