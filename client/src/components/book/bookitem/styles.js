@@ -33,4 +33,11 @@ export default makeStyles((theme) => ({
     width: '50%',
     paddingLeft: '10px',
     },
+    cardActions:{
+      justifyContent: 'center',
+      display: 'flex',
+    },
+    button: {
+
+    }
 }));
