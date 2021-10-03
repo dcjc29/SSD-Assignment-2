@@ -8,7 +8,7 @@ const CLIENT_SECRET = oAuth2.web.client_secret
 const REDIRECT_URI = oAuth2.web.redirect_uris[1]
 const oAuthClient = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
 var isAuthenticated = false
-const SCOPES = "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.profile"
+const SCOPES = "offline https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile"
 
 
 googleRoutes.post("/getToken", (req, res) => {
@@ -48,20 +48,17 @@ googleRoutes.get("/getProfile", (req,res) => {
 })
 
 googleRoutes.post("/upload", (req,res) => {
-    upload(req,res,(err) => {
-       
         // return res.send({data: req.file})
         const driveObj = google.drive({
             auth:oAuthClient,
             version:'v3'
         })
         const fileMetadata = {
-            name: req.file.filename
+            name: "Sample"
         }
 
         const media = {
-            mimeType: req.file.mimetype,
-            body: fs.createReadStream('sample.pdf')
+            body: fs.createReadStream('/Users/durekshawasala/SLIIT/4th Year/SSD/SSD-Assignment-2/server/routes/sample.pdf')
         }
         driveObj.files.create({
             resource: fileMetadata,
@@ -75,8 +72,6 @@ googleRoutes.post("/upload", (req,res) => {
                 res.send({status:200, msg: "File Successfully uploaded"})
             }
         })
-
-    })
 })
 
 googleRoutes.get("/deleteToken", (req,res)=>{

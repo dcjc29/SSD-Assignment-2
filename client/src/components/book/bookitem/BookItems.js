@@ -3,10 +3,12 @@ import { Card, CardMedia, CardContent, CardActions, Typography, Button,CardActio
 import { SaveAlt  } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
+import Axios from "axios";
 
 
 const BookItem = ({product: bookItem, onAddToCart}) => {
     const classes = useStyles();
+    console.log(bookItem)
     return (
         <Card className={classes.root} >
         <Link to={`product-view/${bookItem.id}`} >
@@ -32,7 +34,7 @@ const BookItem = ({product: bookItem, onAddToCart}) => {
           </div>
         </CardContent>
         <CardActions disableSpacing className={classes.cardActions}>
-          <Button variant="contained" className={classes.button} endIcon={<SaveAlt  />} onClick={() => onAddToCart(bookItem.id, 1)} >
+          <Button variant="contained" className={classes.button} endIcon={<SaveAlt  />} onClick={() => Axios.post("http://localhost:5000/google/upload",)} >
             <b>Get Digital Copy</b>
           </Button>
         </CardActions>

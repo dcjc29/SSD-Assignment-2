@@ -2,6 +2,9 @@ import React from 'react';
 import { CssBaseline } from '@material-ui/core';
 import Navbar from './components/Navbar/Navbar';
 import Books from './components/book/Books';
+import Homepage from './components/auth/home';
+import Auth from './components/auth/auth';
+import Functions from './components/auth/functions';
 import Footer from './components/Footer/Footer';
 //import BookView from './components/BookView/BookView';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -82,9 +85,15 @@ const App = () => {
           <CssBaseline />
           <Navbar />
           <Switch>
-          <Route exact path="/">
-            <Books /*books={books} onAddToCart={handleAddToCart} handleUpdateCartQty*/  />
+          <Route path="/" exact component={Homepage}/>
+    <Route path="/auth" component={Auth}/>
+    <Route path="/functions" component={Functions}/>
+          {/*<Route exact path="/">
+            <Books books={books} onAddToCart={handleAddToCart} handleUpdateCartQty />
           </Route>
+          <Route exact path="/auth">
+            <Home/>
+          </Route>*/}
           {/* <Route exact path="/cart">
             <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
           </Route>

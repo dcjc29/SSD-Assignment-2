@@ -10,10 +10,15 @@ const xss = require("xss-clean");
 const rateLimit = require("express-rate-limit");
 const hpp = require("hpp");
 const cors = require("cors");
-//const {google} = require('googleapis');
+const oAuth2 = require('./credentials.json')
+const {google} = require('googleapis');
 
-const { OAuth2Client } = require('google-auth-library')
-const client = new OAuth2Client('15360167138-4jkt4038tefp5ivj9rke9lj3rdp65uep.apps.googleusercontent.com','D_RPmNtIn1WbEZbmKdwdOEPr')
+const CLIENT_ID = oAuth2.web.client_id
+const CLIENT_SECRET = oAuth2.web.client_secret
+const REDIRECT_URI = oAuth2.web.redirect_uris[1]
+const oAuthClient = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
+var isAuthenticated = false
+const SCOPES = "offline https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.profile"
 
 //Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -24,7 +29,7 @@ dotenv.config({ path: "./config/config.env" });
 // Route files
 const users = require("./routes/users");
 const books = require("./routes/books");
-const google = require("./routes/google");
+const googleRouter = require("./routes/google");
 
 const app = express();
 
@@ -59,9 +64,23 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Mount routers
+app.get('/', (req,res) => {
+  console.log("here")
+  if(!isAuthenticated){
+      var url = oAuthClient.generateAuthUrl({
+          access_type: 'offline',
+          scope: SCOPES
+      })
+      console.log(url)
+      res.send({url: url})
+  }else{
+
+  }
+})
 app.use("/api/v1/users", users);
-app.use("/google",google);
+app.use("/google",googleRouter);
 //app.use("/api/v1/books", books);
+
 
 app.post("/api/v1/auth/google", async (req, res) => {
   const { token }  = req.body

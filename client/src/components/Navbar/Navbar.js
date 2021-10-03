@@ -9,20 +9,6 @@ import GoogleLogin from 'react-google-login';
 const Navbar = ({totalItems}) => {
     const classes = useStyles();
     const location = useLocation();
-    const handleLogin = async googleData => {
-      const res = await fetch("/api/v1/auth/google", {
-          method: "POST",
-          body: JSON.stringify({
-          token: googleData.tokenId
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      const data = await res.json();
-      localStorage.setItem('googleToken',googleData.tokenId);
-      console.log(data)
-    }
 
     return (
         <div>
@@ -37,17 +23,12 @@ const Navbar = ({totalItems}) => {
             <div className={classes.grow} />
             {location.pathname === '/' && (
             <div className={classes.button}>
-                <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-                    <Badge badgeContent={totalItems} color="secondary">
-                        <ShoppingCart style={{ fontSize: 35 }} />
-                    </Badge>
-                </IconButton>
+<a href='/auth' className="btn btn-block btn-primary">
+          <span className="fa fa-google"></span> Login
+        </a>
           </div>
           )}
         </Toolbar>
-        <a href='/' className="btn btn-block btn-primary">
-          <span className="fa fa-google"></span> Login
-        </a>
       </AppBar>
             
         </div>
