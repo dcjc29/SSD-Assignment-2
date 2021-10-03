@@ -13,6 +13,18 @@ import { Link } from "react-router-dom";
 const Books = ({ /*products, onAddToCart*/ }) => {
   const classes = useStyles();
 
+  const getDigitalCopy = async googleData => {
+    const res = await fetch("/google/upload", {
+        method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    const data = await res.json();
+    localStorage.setItem('googleToken',googleData.tokenId);
+    console.log(data)
+  }
+
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -81,6 +93,7 @@ const Books = ({ /*products, onAddToCart*/ }) => {
       </div>
 
       </div>
+      <Button onClick={getDigitalCopy}>Get Digital Copy</Button>
     </main>
 
   );
