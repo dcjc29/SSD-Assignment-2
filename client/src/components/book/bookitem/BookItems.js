@@ -8,19 +8,19 @@ import useStyles from './styles';
 const BookItem = ({product: bookItem, onAddToCart}) => {
     const classes = useStyles();
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} style={{width:'100%', width:'200px', paddingLeft:'10px', paddingRight:'10px', paddingTop:'10px'}} >
         <Link to={`product-view/${bookItem.id}`} >
         <CardActionArea>
-        <CardMedia className={classes.media} image={bookItem.media.source} title={bookItem.name}  />
+        <CardMedia className={classes.media} style={{height: '300px', paddingTop: '56.25%'}}  image={bookItem.image} title={bookItem.title}  />
         </CardActionArea>
         </Link>
         <CardContent>
           <div className={classes.cardContent}>
-            <Typography  variant="h6">
-            {bookItem.name}
+            <Typography  variant="h5">
+            {bookItem.title}
             </Typography>
             <Typography variant="h6" color="secondary">
-              ₹<b>{bookItem.price.formatted}</b> 
+              Rs.<b>{bookItem.price}</b> 
             </Typography>
           </div>
         </CardContent>
