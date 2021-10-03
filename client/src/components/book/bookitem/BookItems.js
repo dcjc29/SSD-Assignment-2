@@ -20,6 +20,9 @@ const BookItem = ({product: bookItem, onAddToCart}) => {
             <Typography  variant="h4"  style={{fontWeight:'bold'}}>
             {bookItem.title}
             </Typography>
+            <Typography  variant="h5"  style={{textAlign:'right', marginTop:'20px', color:'#808080'}}>
+            {bookItem.author}
+            </Typography>
             <Divider light style={{marginTop:'20px'}}/>
             <Typography
             style={{lineHeight: 1.8,textAlign:'left'}}
@@ -27,6 +30,7 @@ const BookItem = ({product: bookItem, onAddToCart}) => {
           >
             {bookItem.description}
           </Typography>
+
             <Typography variant="h4" gutterBottom color="secondary" >
               Rs.<b>{bookItem.price}.00 </b>
             </Typography>
