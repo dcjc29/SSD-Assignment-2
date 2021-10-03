@@ -1,0 +1,26 @@
+name: Heroku Docker Registry Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./code-kitty-api
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build, Push and Release a Docker container to Heroku.
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          email: hcsperera@gmail.com
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ssd-assignment-2-backend
+          dockerfile_directory: ./server/
+          dockerfile_name: Dockerfile
+          docker_options: "--no-cache"
+          process_type: web
