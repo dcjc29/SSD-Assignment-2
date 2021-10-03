@@ -8,10 +8,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import logo1 from "../../assets/2.png";
 import logo2 from "../../assets/3.png";
 import logo3 from "../../assets/4.png";
-import { Link } from "react-router-dom";
 import axios from 'axios';
 
-function Books({ products, onAddToCart }) {
+function Books({  onAddToCart }) {
   const classes = useStyles();
   
   const [searchTerm, setSearchTerm] = useState("");

@@ -37,9 +37,11 @@ const BookItem = ({product: bookItem, onAddToCart}) => {
           </div>
         </CardContent>
         <CardActions disableSpacing className={classes.cardActions}>
-          <Button variant="contained" className={classes.button} endIcon={<SaveAlt  />} onClick={() => onAddToCart(bookItem.id, 1)} >
+        <a href={bookItem.file} className="ml-2" download>
+          <Button variant="contained" className={classes.button} endIcon={<SaveAlt  />}  >
             <b>Get Digital Copy</b>
           </Button>
+        </a>
         </CardActions>
         </Card>
     )
